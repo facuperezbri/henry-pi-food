@@ -25,10 +25,11 @@ router.get("/", async (req, res, next) => {
 					name: r.title,
 					summary: r.summary,
 					healthScore: r.healthScore,
-					steps: r.steps,
+					steps: r.analyzedInstructions,
 				};
 			});
-			res.send(apiData);
+			let allData = [...apiData, ...dbData];
+			res.send(allData);
 		});
 	} catch (error) {
 		next(error);
