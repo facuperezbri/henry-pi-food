@@ -26,6 +26,7 @@ router.get("/", async (req, res, next) => {
 					summary: r.summary,
 					healthScore: r.healthScore,
 					steps: r.analyzedInstructions,
+					image: r.image,
 				};
 			});
 			let allData = [...apiData, ...dbData];
