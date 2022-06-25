@@ -4,8 +4,6 @@ const db = require("../db");
 const { API_KEY } = process.env;
 const { Recipe, Diet } = require("../db");
 
-// Hola
-
 let apiURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`;
 
 const getApiRecipe = async () => {
