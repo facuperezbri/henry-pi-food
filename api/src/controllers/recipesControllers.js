@@ -13,10 +13,11 @@ const getApiRecipe = async () => {
 			id: r.id,
 			name: r.title,
 			summary: r.summary,
+			dishTypes: r.dishTypes?.map((d) => d),
+			diets: r.diets.map((d) => d),
 			healthScore: r.healthScore,
-			steps: r.analyzedInstructions,
+			steps: r.analyzedInstructions[0]?.steps?.map((s) => s.step),
 			image: r.image,
-			diets: r.diets,
 		};
 	});
 	return apiData;
