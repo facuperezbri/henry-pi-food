@@ -5,7 +5,8 @@ const { preload } = require("../controllers/dietTypesController");
 
 router.get("/", async (req, res, next) => {
 	try {
-		const allTypes = await preload();
+		let allTypes = await preload();
+		allTypes = await preload();
 		res.send(allTypes);
 	} catch (error) {
 		next(error);

@@ -25,7 +25,13 @@ const getApiRecipe = async () => {
 
 const getDBRecipe = async () => {
 	let dbData = await Recipe.findAll({
-		include: Diet,
+		include: {
+			model: Diet,
+			attributes: ["name"],
+			through: {
+				attributes: [],
+			},
+		},
 	});
 	return dbData;
 };

@@ -1,17 +1,17 @@
 const { Diet } = require("../db");
 
 const diets = [
-	"Gluten Free",
-	"Ketogenic",
-	"Vegetarian",
-	"Lacto-Vegetarian",
-	"Ovo-Vegetarian",
-	"Vegan",
-	"Pescetarian",
-	"Paleo",
-	"Primal",
-	"Low FODMAP",
-	"Whole30",
+	"gluten free",
+	"ketogenic",
+	"vegetarian",
+	"lacto ovo vegetarian",
+	"ovo vegetarian",
+	"vegan",
+	"pescetarian",
+	"paleo",
+	"primal",
+	"low FODMAP",
+	"whole 30",
 ];
 
 async function preload() {
@@ -21,7 +21,8 @@ async function preload() {
 		});
 	});
 
-	const allDiets = await Diet.findAll();
+	const allDiets1 = await Diet.findAll();
+	const allDiets = allDiets1.flat();
 	return allDiets;
 }
 
