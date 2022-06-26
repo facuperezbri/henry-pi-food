@@ -21,8 +21,8 @@ async function preload() {
 		});
 	});
 
-	const allDiets1 = await Diet.findAll();
-	const allDiets = allDiets1.flat();
+	let allDiets = await Diet.findAll();
+	allDiets = Diet.findAll();
 	return allDiets;
 }
 
