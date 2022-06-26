@@ -37,14 +37,21 @@ router.get("/:idReceta", async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
-	const { name, summary, healthScore, steps } = req.body;
+	const { name, summary, healthScore, steps, diets, image } = req.body;
 	try {
 		let newRecipe = await Recipe.create({
 			name,
 			summary,
 			healthScore,
 			steps,
+			image,
 		});
+		let dietsDB = await Diet.findAll({
+			where: {
+				name: diets,
+			},
+		});
+		newRecipe.addDiet(dietsDB);
 		res.status(201).send(newRecipe);
 	} catch (error) {
 		next(error);

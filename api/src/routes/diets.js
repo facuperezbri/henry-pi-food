@@ -1,32 +1,12 @@
 const { Router } = require("express");
 const router = Router();
 const { Diet } = require("../db");
+const { preload } = require("../controllers/dietTypesController");
 
 router.get("/", async (req, res, next) => {
-	const diets = [
-		"Gluten Free",
-		"Ketogenic",
-		"Vegetarian",
-		"Lacto-Vegetarian",
-		"Ovo-Vegetarian",
-		"Vegan",
-		"Pescetarian",
-		"Paleo",
-		"Primal",
-		"Low FODMAP",
-		"Whole30",
-	];
 	try {
-		diets.forEach((d) => {
-			Diet.findOrCreate({
-				where: {
-					name: d,
-				},
-			});
-		});
-
-		const allDiets = await Diet.findAll();
-		res.send(allDiets);
+		const allTypes = await preload();
+		res.send(allTypes);
 	} catch (error) {
 		next(error);
 	}
