@@ -12,6 +12,7 @@ const diets = [
 	"primal",
 	"low FODMAP",
 	"whole 30",
+	"dairy free",
 ];
 
 async function preload() {
