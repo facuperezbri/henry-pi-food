@@ -32,6 +32,7 @@ const getDBRecipe = async () => {
 				attributes: [],
 			},
 		},
+		order: [["name", "ASC"]],
 	});
 	return dbData;
 };
