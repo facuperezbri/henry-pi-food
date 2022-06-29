@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardRecipe from "./CardRecipe";
+import SearchBar from "./SearchBar";
 import { getRecipes } from "../store/actions";
 
 import "./recipesContainer.css";
@@ -41,6 +42,7 @@ export default function CardRecipes() {
 								name={r.name}
 								diets={r.diets}
 								healthScore={r.healthScore}
+								id={r.id}
 							/>
 						</div>
 					);
