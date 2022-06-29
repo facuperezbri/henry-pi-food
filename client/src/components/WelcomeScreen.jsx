@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 // images
 
-import logo from "../../assets/logo-white.png";
-import mainImg from "../../assets/main-img.png";
+import logo from "../assets/logo-white.png";
+import mainImg from "../assets/main-img.png";
 
 // css
 
@@ -13,11 +13,6 @@ import "./welcomeScreen.css";
 export default function WelcomeScreen() {
 	return (
 		<div>
-			<nav>
-				<a href='https://www.soyhenry.com/' target='_blank' rel='noreferrer'>
-					<img className='henry-logo' src={logo} alt='Henry logo' />
-				</a>
-			</nav>
 			<div className='mainContainer'>
 				<div className='textButtonContainer'>
 					<h1>

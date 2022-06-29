@@ -1,0 +1,33 @@
+.recipesContainer {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	justify-content: center;
+}
+
+.pagList {
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.pagList li {
+	border: 2px #f28d2f solid;
+	padding: 0.5rem 0;
+	width: 2rem;
+	color: #fff;
+	border-radius: 5px;
+
+	font-weight: 800;
+
+	transition: 0.4s;
+
+	text-align: center;
+}
+
+.pagList li:hover {
+	background: #f28d2f;
+}
+
+.numberPageActive {
+	background: #f28d2f;
+}

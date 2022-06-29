@@ -1,7 +1,8 @@
-import { GET_RECIPES } from "../actions/actionTypes";
+import { GET_DIETS, GET_RECIPES } from "../actions/actionTypes";
 
 const initialState = {
 	recipes: [],
+	diets: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -10,6 +11,11 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				recipes: action.payload,
+			};
+		case GET_DIETS:
+			return {
+				...state,
+				diets: action.payload,
 			};
 		default:
 			return state;

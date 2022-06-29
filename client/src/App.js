@@ -1,11 +1,13 @@
-import { Route, Link } from "react-router-dom";
-import Home from "./components/Home/Home";
-import WelcomeScreen from "./components/WelcomeScreen/WelcomeScreen";
+import { Route } from "react-router-dom";
+import Home from "./components/Home";
+import NavBar from "./components/NavBar";
+import WelcomeScreen from "./components/WelcomeScreen";
 
 function App() {
 	return (
 		<div className='App'>
-			<Route exact path='/' component={WelcomeScreen}></Route>
+			<NavBar />
+			<Route exact path='/' component={WelcomeScreen} />
 			<Route path='/home' component={Home} />
 		</div>
 	);

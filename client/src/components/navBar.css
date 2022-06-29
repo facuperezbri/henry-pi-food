@@ -1,0 +1,36 @@
+nav {
+	display: flex;
+	position: sticky;
+	top: 0;
+	justify-content: space-around;
+	background: #1b1d21;
+	align-items: center;
+}
+
+.henryLogo {
+	height: 2rem;
+	margin-top: 1rem;
+	transition: 0.4s;
+	cursor: pointer;
+}
+
+.henryLogo:hover {
+	transform: scale(1.2);
+}
+
+.socialLogo {
+	transition: 0.4s;
+}
+
+.socialLogo:hover {
+	transform: scale(1.1);
+}
+
+ul {
+	display: flex;
+}
+
+ul li {
+	list-style-type: none;
+	margin: 0 1rem;
+}
