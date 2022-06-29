@@ -34,7 +34,18 @@ const getDBRecipe = async () => {
 		},
 		order: [["name", "ASC"]],
 	});
-	return dbData;
+	let dbDataFinal = dbData.map((e) => {
+		return {
+			id: e.dataValues.id,
+			name: e.dataValues.name,
+			healthScore: e.dataValues.healthScore,
+			steps: e.dataValues.steps,
+			image: e.dataValues.image,
+			readyInMinutes: e.dataValues.readyInMinutes,
+			diets: e.dataValues.diets.map((d) => d.name),
+		};
+	});
+	return dbDataFinal;
 };
 
 const getAllRecipes = async () => {
