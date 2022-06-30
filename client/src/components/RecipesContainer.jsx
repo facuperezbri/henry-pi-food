@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getRecipes } from "../store/actions";
 
-import "./recipesContainer.css";
+import style from "./recipesContainer.module.css";
 
 const CardRecipe = React.lazy(() => import("./CardRecipe"));
 
@@ -39,7 +39,7 @@ export default function CardRecipes() {
 
 	const showCurrentItems = () => {
 		return (
-			<div className='recipesContainer'>
+			<div className={style.recipesContainer}>
 				{currentItems.map((r, i) => {
 					return (
 						<div key={i}>
@@ -64,7 +64,7 @@ export default function CardRecipes() {
 		return (
 			<Fragment>
 				<li
-					className={p === currentPage ? "numberPageActive" : null}
+					className={p === currentPage ? style.numberPageActive : null}
 					onClick={handleClick}
 					key={p}
 					id={p}
@@ -89,23 +89,23 @@ export default function CardRecipes() {
 
 	return (
 		<div>
-			<ul className='pagList'>
-				<button className='prevNextButton' onClick={buttonPrev}>
+			<ul className={style.pagList}>
+				<button className={style.prevNextButton} onClick={buttonPrev}>
 					Prev
-				</button>{" "}
+				</button>
 				{pageNumbers}
-				<button className='prevNextButton' onClick={buttonNext}>
+				<button className={style.prevNextButton} onClick={buttonNext}>
 					Next
 				</button>
 			</ul>
 
 			<div>{showCurrentItems()}</div>
-			<ul className='pagList'>
-				<button className='prevNextButton' onClick={buttonPrev}>
+			<ul className={style.pagList}>
+				<button className={style.prevNextButton} onClick={buttonPrev}>
 					Prev
-				</button>{" "}
+				</button>
 				{pageNumbers}
-				<button className='prevNextButton' onClick={buttonNext}>
+				<button className={style.prevNextButton} onClick={buttonNext}>
 					Next
 				</button>
 			</ul>

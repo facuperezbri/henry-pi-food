@@ -1,16 +1,16 @@
 import React from "react";
 
-import "./navBar.css";
-
 import henryLogo from "../assets/logo-white.png";
 import linkedin from "../assets/linkedin.png";
 import github from "../assets/github.png";
+
+import style from "./navBar.module.css";
 
 export default function NavBar() {
 	return (
 		<nav>
 			<div>
-				<img className='henryLogo' src={henryLogo} alt='Henry logo' />
+				<img className={style.henryLogo} src={henryLogo} alt='Henry logo' />
 			</div>
 			<ul>
 				<li>
@@ -19,7 +19,11 @@ export default function NavBar() {
 						target='_blank'
 						rel='noreferrer'
 					>
-						<img className='socialLogo' src={linkedin} alt='Linkedin link' />
+						<img
+							className={style.socialLogo}
+							src={linkedin}
+							alt='Linkedin link'
+						/>
 					</a>
 				</li>
 				<li>
@@ -28,7 +32,11 @@ export default function NavBar() {
 						target='_blank'
 						rel='noreferrer'
 					>
-						<img className='socialLogo' src={github} alt='Linkedin link' />
+						<img
+							className={style.socialLogo}
+							src={github}
+							alt='Linkedin link'
+						/>
 					</a>
 				</li>
 			</ul>
