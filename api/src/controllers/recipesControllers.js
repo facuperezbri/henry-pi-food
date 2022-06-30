@@ -4,7 +4,8 @@ const db = require("../db");
 const { API_KEY } = process.env;
 const { Recipe, Diet } = require("../db");
 
-let apiURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`;
+let apiURL2 = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`;
+let apiURL = `https://apimocha.com/facurecipes/recipes`;
 
 const getApiRecipe = async () => {
 	const apiPromisedData = await axios.get(apiURL);

@@ -1,0 +1,16 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.input {
+	height: 2.5rem;
+	width: 12rem;
+	border-radius: 10px;
+	border: none;
+}
+
+.button {
+	height: 2.5rem;
+}

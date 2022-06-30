@@ -1,14 +1,21 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import CardRecipe from "./CardRecipe";
-import SearchBar from "./SearchBar";
+
 import { getRecipes } from "../store/actions";
 
 import "./recipesContainer.css";
 
+const CardRecipe = React.lazy(() => import("./CardRecipe"));
+
 export default function CardRecipes() {
 	const dispatch = useDispatch();
 	const recetasGlobal = useSelector((state) => state.recipes);
+
+	// Para restablecer paginado en 1 cuando hago Search
+
+	useEffect(() => {
+		setCurrentPage(1);
+	}, [recetasGlobal]);
 
 	// Paginado
 
@@ -33,17 +40,19 @@ export default function CardRecipes() {
 	const showCurrentItems = () => {
 		return (
 			<div className='recipesContainer'>
-				{currentItems.map((r) => {
+				{currentItems.map((r, i) => {
 					return (
-						<div>
-							<CardRecipe
-								key={r.id}
-								image={r.image}
-								name={r.name}
-								diets={r.diets}
-								healthScore={r.healthScore}
-								id={r.id}
-							/>
+						<div key={i}>
+							<Suspense fallback={<div>Loading...</div>}>
+								<CardRecipe
+									key={r.id}
+									image={r.image}
+									name={r.name}
+									diets={r.diets}
+									healthScore={r.healthScore}
+									id={r.id}
+								/>
+							</Suspense>
 						</div>
 					);
 				})}
@@ -81,14 +90,24 @@ export default function CardRecipes() {
 	return (
 		<div>
 			<ul className='pagList'>
-				<button onClick={buttonPrev}>Prev</button> {pageNumbers}
-				<button onClick={buttonNext}>Next</button>
+				<button className='prevNextButton' onClick={buttonPrev}>
+					Prev
+				</button>{" "}
+				{pageNumbers}
+				<button className='prevNextButton' onClick={buttonNext}>
+					Next
+				</button>
 			</ul>
 
 			<div>{showCurrentItems()}</div>
 			<ul className='pagList'>
-				<button onClick={buttonPrev}>Prev</button> {pageNumbers}
-				<button onClick={buttonNext}>Next</button>
+				<button className='prevNextButton' onClick={buttonPrev}>
+					Prev
+				</button>{" "}
+				{pageNumbers}
+				<button className='prevNextButton' onClick={buttonNext}>
+					Next
+				</button>
 			</ul>
 		</div>
 	);

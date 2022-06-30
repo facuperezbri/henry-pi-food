@@ -12,3 +12,15 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
 }
+
+a {
+	text-decoration: none;
+}
+
+:root {
+	--main-orange: #f28d2f;
+}
+
+::selection {
+	color: var(--main-orange);
+}

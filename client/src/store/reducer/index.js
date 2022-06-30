@@ -2,6 +2,7 @@ import {
 	GET_DIETS,
 	GET_RECIPES,
 	GET_RECIPE_DETAIL,
+	SEARCH_RECIPE,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -26,6 +27,11 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				recipeDetail: action.payload,
+			};
+		case SEARCH_RECIPE:
+			return {
+				...state,
+				recipes: action.payload,
 			};
 		default:
 			return state;

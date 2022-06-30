@@ -1,5 +1,10 @@
 import axios from "axios";
-import { GET_RECIPES, GET_DIETS, GET_RECIPE_DETAIL } from "./actionTypes";
+import {
+	GET_RECIPES,
+	GET_DIETS,
+	GET_RECIPE_DETAIL,
+	SEARCH_RECIPE,
+} from "./actionTypes";
 
 export function getRecipes() {
 	return async function (dispatch) {
@@ -21,6 +26,18 @@ export function getRecipeDetail(id) {
 		return dispatch({
 			type: GET_RECIPE_DETAIL,
 			payload: recipeDet.data,
+		});
+	};
+}
+
+export function searchRecipe(name) {
+	return async function (dispatch) {
+		const searchRecipe = await axios.get(
+			`http://localhost:3001/recipes?name=${name}`
+		);
+		return dispatch({
+			type: SEARCH_RECIPE,
+			payload: searchRecipe.data,
 		});
 	};
 }

@@ -8,6 +8,7 @@
 	display: flex;
 	justify-content: center;
 	cursor: pointer;
+	align-items: center;
 }
 
 .pagList li {
@@ -30,4 +31,10 @@
 
 .numberPageActive {
 	background: #f28d2f;
+}
+
+.prevNextButton {
+	height: 1rem;
+	display: grid;
+	place-content: center;
 }
