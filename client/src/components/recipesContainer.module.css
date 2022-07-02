@@ -46,7 +46,7 @@
 	border-radius: 10px;
 
 	cursor: pointer;
-	transform: 0.4s;
+	transition: 0.4s;
 }
 
 .prevNextButton:hover {
