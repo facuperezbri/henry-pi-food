@@ -2,7 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./cardRecipe.module.css";
 
-export default function CardRecipe({ image, name, diets, healthScore, id }) {
+export default function CardRecipe({
+	image,
+	name,
+	diets,
+	healthScore,
+	id,
+	steps,
+}) {
 	return (
 		<Link to={`/home/${id}`}>
 			<div className={style.cardContainer}>
@@ -14,8 +21,6 @@ export default function CardRecipe({ image, name, diets, healthScore, id }) {
 							return <li key={i}>{d}</li>;
 						})}
 					</ul>
-				</div>
-				<div>
 					<p>{`Health Score  ${healthScore}`}</p>
 				</div>
 			</div>

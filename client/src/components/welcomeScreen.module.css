@@ -38,6 +38,6 @@ span {
 	cursor: pointer;
 }
 
-button:hover {
+.button:hover {
 	transform: scale(1.1);
 }

@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getDiets } from "../store/actions";
+import { getDiets } from "../redux/actions";
 import RecipesContainer from "./RecipesContainer";
 
 export default function Home() {

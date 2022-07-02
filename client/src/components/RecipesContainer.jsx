@@ -1,11 +1,10 @@
-import React, { Fragment, Suspense, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import CardRecipe from "./CardRecipe";
 
-import { getRecipes } from "../store/actions";
+import { getRecipes } from "../redux/actions";
 
 import style from "./recipesContainer.module.css";
-
-const CardRecipe = React.lazy(() => import("./CardRecipe"));
 
 export default function CardRecipes() {
 	const dispatch = useDispatch();
@@ -37,22 +36,23 @@ export default function CardRecipes() {
 
 	const currentItems = recetasGlobal.slice(firstItem, lastItem);
 
+	console.log(currentItems);
+
 	const showCurrentItems = () => {
 		return (
 			<div className={style.recipesContainer}>
 				{currentItems.map((r, i) => {
 					return (
 						<div key={i}>
-							<Suspense fallback={<div>Loading...</div>}>
-								<CardRecipe
-									key={r.id}
-									image={r.image}
-									name={r.name}
-									diets={r.diets}
-									healthScore={r.healthScore}
-									id={r.id}
-								/>
-							</Suspense>
+							<CardRecipe
+								key={r.id}
+								image={r.image}
+								name={r.name}
+								diets={r.diets}
+								healthScore={r.healthScore}
+								id={r.id}
+								steps={r.steps}
+							/>
 						</div>
 					);
 				})}

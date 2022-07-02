@@ -6,6 +6,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: #1b1d21;
+	scroll-behavior: smooth;
 }
 
 code {
@@ -23,4 +24,5 @@ a {
 
 ::selection {
 	color: var(--main-orange);
+	background-color: #fff;
 }
