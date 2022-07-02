@@ -4,6 +4,8 @@ import {
 	GET_DIETS,
 	GET_RECIPE_DETAIL,
 	SEARCH_RECIPE,
+	SORT_BY_NAME,
+	SORT_BY_HS,
 } from "./actionTypes";
 
 export function getRecipes() {
@@ -39,5 +41,19 @@ export function searchRecipe(name) {
 			type: SEARCH_RECIPE,
 			payload: searchRecipe.data,
 		});
+	};
+}
+
+export function sortByName(order) {
+	return {
+		type: SORT_BY_NAME,
+		payload: order,
+	};
+}
+
+export function sortByHealthScore(order) {
+	return {
+		type: SORT_BY_HS,
+		payload: order,
 	};
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchRecipe, getRecipes } from "../redux/actions";
+import Order from "./Order";
 import style from "./search.module.css";
 
 export default function Search() {
@@ -25,6 +26,7 @@ export default function Search() {
 
 	return (
 		<div className={style.container}>
+			<Order />
 			<form>
 				<input
 					className={style.input}

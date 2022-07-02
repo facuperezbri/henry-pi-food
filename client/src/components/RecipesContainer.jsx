@@ -36,8 +36,6 @@ export default function CardRecipes() {
 
 	const currentItems = recetasGlobal.slice(firstItem, lastItem);
 
-	console.log(currentItems);
-
 	const showCurrentItems = () => {
 		return (
 			<div className={style.recipesContainer}>
