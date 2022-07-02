@@ -12,7 +12,7 @@ export default function NavBar() {
 			<div>
 				<img className={style.henryLogo} src={henryLogo} alt='Henry logo' />
 			</div>
-			<ul>
+			<ul className={style.ul}>
 				<li>
 					<a
 						href='https://www.linkedin.com/in/facuperezbri/'

@@ -26,11 +26,11 @@ nav {
 	transform: scale(1.1);
 }
 
-ul {
+.ul {
 	display: flex;
 }
 
-ul li {
+.ul li {
 	list-style-type: none;
 	margin: 0 0.5rem;
 }

@@ -37,6 +37,7 @@ export default function reducer(state = initialState, action) {
 			};
 		case SORT_BY_NAME:
 			let orderedRecipes = [...state.recipes];
+			if (action.payload === "azAll") return state.recipes;
 			orderedRecipes.sort((a, b) => {
 				if (a.name < b.name) {
 					return action.payload === "az" ? -1 : 1;

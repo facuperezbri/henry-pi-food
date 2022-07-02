@@ -20,7 +20,6 @@ export default function Search() {
 	}
 
 	function clearSearch(e) {
-		e.preventDefault();
 		dispatch(getRecipes());
 	}
 
