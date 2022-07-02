@@ -1,6 +1,7 @@
 import React from "react";
 import { sortByName, sortByHealthScore } from "../redux/actions";
 import { useDispatch } from "react-redux";
+import style from "./order.module.css";
 
 export default function Order() {
 	const dispatch = useDispatch();
@@ -12,7 +13,7 @@ export default function Order() {
 			dispatch(sortByHealthScore(e.target.value));
 	}
 	return (
-		<div>
+		<div className={style.container}>
 			<select name='alphOrder' onChange={onSelectChange}>
 				<option value='az'>A-Z</option>
 				<option value='za'>Z-A</option>

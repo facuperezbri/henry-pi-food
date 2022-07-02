@@ -1,0 +1,13 @@
+.container {
+	margin-right: 1rem;
+}
+
+.container select {
+	margin-left: 1rem;
+	height: 2.8rem;
+	border: none;
+	border-radius: 10px;
+	background: var(--main-orange);
+	color: #fff;
+	font-weight: 800;
+}
