@@ -9,6 +9,8 @@
 	justify-content: center;
 	cursor: pointer;
 	align-items: center;
+
+	margin-bottom: 1rem;
 }
 
 .pagList li {

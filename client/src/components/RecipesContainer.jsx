@@ -8,7 +8,7 @@ import style from "./recipesContainer.module.css";
 
 export default function CardRecipes() {
 	const dispatch = useDispatch();
-	const recetasGlobal = useSelector((state) => state.recipes);
+	const recetasGlobal = useSelector((state) => state.filteredRecipes);
 
 	// Para restablecer paginado en 1 cuando hago Search
 

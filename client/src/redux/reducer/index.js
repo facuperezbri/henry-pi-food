@@ -1,4 +1,5 @@
 import {
+	FILTER_BY,
 	GET_DIETS,
 	GET_RECIPES,
 	GET_RECIPE_DETAIL,
@@ -9,6 +10,7 @@ import {
 
 const initialState = {
 	recipes: [],
+	filteredRecipes: [],
 	diets: [],
 	recipeDetail: [],
 };
@@ -19,6 +21,7 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				recipes: action.payload,
+				filteredRecipes: action.payload,
 			};
 		case GET_DIETS:
 			return {
@@ -34,6 +37,7 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				recipes: action.payload,
+				filteredRecipes: state.recipes,
 			};
 		case SORT_BY_NAME:
 			let orderedRecipes = [...state.recipes];
@@ -48,7 +52,7 @@ export default function reducer(state = initialState, action) {
 			});
 			return {
 				...state,
-				recipes: orderedRecipes,
+				filteredRecipes: orderedRecipes,
 			};
 		case SORT_BY_HS:
 			let orderedRecipesHS = [...state.recipes];
@@ -60,7 +64,15 @@ export default function reducer(state = initialState, action) {
 					return action.payload === "90" ? -1 : 1;
 				}
 			});
-			return { ...state, recipes: orderedRecipesHS };
+			return { ...state, filteredRecipes: orderedRecipesHS };
+		case FILTER_BY:
+			return {
+				...state,
+				filteredRecipes: state.recipes.filter((type) =>
+					type.diets.includes(action.payload)
+				),
+			};
+
 		default:
 			return state;
 	}

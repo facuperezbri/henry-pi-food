@@ -6,6 +6,7 @@ import {
 	SEARCH_RECIPE,
 	SORT_BY_NAME,
 	SORT_BY_HS,
+	FILTER_BY,
 } from "./actionTypes";
 
 export function getRecipes() {
@@ -55,5 +56,12 @@ export function sortByHealthScore(order) {
 	return {
 		type: SORT_BY_HS,
 		payload: order,
+	};
+}
+
+export function filterBy(diet) {
+	return {
+		type: FILTER_BY,
+		payload: diet,
 	};
 }
