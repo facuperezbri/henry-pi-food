@@ -17,7 +17,7 @@ export default function RecipeDetail(props) {
 			<h2>{recipeDetail.name}</h2>
 			{recipeDetail.image ? (
 				<div className={style.imgContainer}>
-					<img src={recipeDetail.image} alt='imagen' />
+					<img src={recipeDetail.image} alt='imagen' className={style.image} />
 				</div>
 			) : null}
 
