@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { searchRecipe, getRecipes } from "../redux/actions";
 import Order from "./Order";
 import style from "./search.module.css";
+import { Link } from "react-router-dom";
 
 export default function Search() {
 	const dispatch = useDispatch();
@@ -40,6 +41,9 @@ export default function Search() {
 					Clear
 				</button>
 			</form>
+			<Link to='/create'>
+				<button className={style.button}>Create your recipe!</button>
+			</Link>
 		</div>
 	);
 }

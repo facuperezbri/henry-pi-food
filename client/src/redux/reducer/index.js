@@ -40,8 +40,7 @@ export default function reducer(state = initialState, action) {
 				filteredRecipes: state.recipes,
 			};
 		case SORT_BY_NAME:
-			let orderedRecipes = [...state.recipes];
-			if (action.payload === "azAll") return state.recipes;
+			let orderedRecipes = [...state.filteredRecipes];
 			orderedRecipes.sort((a, b) => {
 				if (a.name < b.name) {
 					return action.payload === "az" ? -1 : 1;
@@ -55,7 +54,7 @@ export default function reducer(state = initialState, action) {
 				filteredRecipes: orderedRecipes,
 			};
 		case SORT_BY_HS:
-			let orderedRecipesHS = [...state.recipes];
+			let orderedRecipesHS = [...state.filteredRecipes];
 			orderedRecipesHS.sort((a, b) => {
 				if (a.healthScore < b.healthScore) {
 					return action.payload === "09" ? -1 : 1;
@@ -66,6 +65,10 @@ export default function reducer(state = initialState, action) {
 			});
 			return { ...state, filteredRecipes: orderedRecipesHS };
 		case FILTER_BY:
+			let stateRecipes = [...state.recipes];
+			if (action.payload === null) {
+				return { ...state, filteredRecipes: stateRecipes };
+			}
 			return {
 				...state,
 				filteredRecipes: state.recipes.filter((type) =>

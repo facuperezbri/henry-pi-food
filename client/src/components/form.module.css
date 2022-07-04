@@ -1,6 +1,58 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+}
+
+.container h2 {
+	color: #fff;
+	margin: 2rem 0;
+}
 .form {
 	color: #fff;
 	display: flex;
+	justify-content: center;
 	flex-direction: column;
-	margin: 2rem;
+	padding: 3rem;
+	width: 35rem;
+	border: 4px #f28d2f solid;
+	border-radius: 10px;
+	overflow: hidden;
+	color: #fff;
+}
+
+.form label {
+	margin: 0.5rem 0;
+}
+
+.form input {
+	padding: 0.5rem;
+}
+
+.buttonContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.button {
+	height: 2.8rem;
+	width: 6rem;
+	background: #f28d2f;
+	color: #fff;
+
+	font-weight: 800;
+	border: none;
+	border-radius: 10px;
+
+	cursor: pointer;
+
+	transition: 0.4s;
+
+	margin: 1rem auto 0 auto;
+}
+
+.button:hover {
+	transform: scale(1.1);
 }
