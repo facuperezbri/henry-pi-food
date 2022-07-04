@@ -65,3 +65,7 @@ export function filterBy(diet) {
 		payload: diet,
 	};
 }
+
+export function createRecipe(state) {
+	axios.post("http://localhost:3001/recipes", state);
+}

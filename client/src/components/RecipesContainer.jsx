@@ -87,26 +87,30 @@ export default function CardRecipes() {
 
 	return (
 		<div>
-			<ul className={style.pagList}>
-				<button className={style.prevNextButton} onClick={buttonPrev}>
-					Prev
-				</button>
-				{pageNumbers}
-				<button className={style.prevNextButton} onClick={buttonNext}>
-					Next
-				</button>
-			</ul>
+			{pageNumbers.length > 0 ? (
+				<ul className={style.pagList}>
+					<button className={style.prevNextButton} onClick={buttonPrev}>
+						Prev
+					</button>
+					{pageNumbers}
+					<button className={style.prevNextButton} onClick={buttonNext}>
+						Next
+					</button>
+				</ul>
+			) : null}
 
 			<div>{showCurrentItems()}</div>
-			<ul className={style.pagList}>
-				<button className={style.prevNextButton} onClick={buttonPrev}>
-					Prev
-				</button>
-				{pageNumbers}
-				<button className={style.prevNextButton} onClick={buttonNext}>
-					Next
-				</button>
-			</ul>
+			{pageNumbers.length > 0 ? (
+				<ul className={style.pagList}>
+					<button className={style.prevNextButton} onClick={buttonPrev}>
+						Prev
+					</button>
+					{pageNumbers}
+					<button className={style.prevNextButton} onClick={buttonNext}>
+						Next
+					</button>
+				</ul>
+			) : null}
 		</div>
 	);
 }

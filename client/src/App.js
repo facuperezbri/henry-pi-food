@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import WelcomeScreen from "./components/WelcomeScreen";
 import RecipeDetail from "./components/RecipeDetail";
 import Search from "./components/Search";
+import Form from "./components/Form";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 				path='/home/:id'
 				render={({ match }) => <RecipeDetail match={match} />}
 			/>
+			<Route exact path='/create' component={Form} />
 		</div>
 	);
 }

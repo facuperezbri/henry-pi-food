@@ -19,6 +19,7 @@ const getApiRecipe = async () => {
 			healthScore: r.healthScore,
 			steps: r.analyzedInstructions[0]?.steps?.map((s) => s.step),
 			image: r.image,
+			readyInMinutes: r.readyInMinutes,
 		};
 	});
 	return apiData;

@@ -5,3 +5,4 @@ export const SEARCH_RECIPE = "SEARCH_RECIPE";
 export const SORT_BY_NAME = "SORT_BY_NAME";
 export const SORT_BY_HS = "SORT_BY_HS";
 export const FILTER_BY = "FILTER_BY";
+export const CREATE_RECIPE = "CREATE_RECIPE";

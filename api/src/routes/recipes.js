@@ -37,7 +37,8 @@ router.get("/:idReceta", async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
-	const { name, summary, healthScore, steps, diets, image } = req.body;
+	const { name, summary, healthScore, steps, diets, image, readyInMinutes } =
+		req.body;
 	try {
 		let newRecipe = await Recipe.create({
 			name,
@@ -45,6 +46,7 @@ router.post("/", async (req, res, next) => {
 			healthScore,
 			steps,
 			image,
+			readyInMinutes,
 		});
 		let dietsDB = await Diet.findAll({
 			where: {
