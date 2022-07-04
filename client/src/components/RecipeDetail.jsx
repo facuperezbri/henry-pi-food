@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipeDetail } from "../redux/actions";
 import style from "./recipeDetail.module.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function RecipeDetail(props) {
 	const recipeDetail = useSelector((state) => state.recipeDetail);
@@ -11,8 +11,6 @@ export default function RecipeDetail(props) {
 	useEffect(() => {
 		dispatch(getRecipeDetail(props.match.params.id));
 	}, [dispatch, props.match.params.id]);
-
-	const history = useHistory();
 
 	return (
 		<div className={style.container}>

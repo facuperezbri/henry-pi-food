@@ -10,3 +10,8 @@
 	width: 60%;
 	color: #fff;
 }
+
+.image {
+	width: 100%;
+	max-width: 300px;
+}

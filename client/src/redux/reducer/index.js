@@ -13,6 +13,7 @@ const initialState = {
 	filteredRecipes: [],
 	diets: [],
 	recipeDetail: [],
+	searchRecipeState: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -36,8 +37,8 @@ export default function reducer(state = initialState, action) {
 		case SEARCH_RECIPE:
 			return {
 				...state,
-				recipes: action.payload,
-				filteredRecipes: state.recipes,
+				filteredRecipes: [],
+				searchRecipeState: action.payload,
 			};
 		case SORT_BY_NAME:
 			let orderedRecipes = [...state.filteredRecipes];

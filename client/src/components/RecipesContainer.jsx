@@ -6,6 +6,8 @@ import { getRecipes } from "../redux/actions";
 
 import style from "./recipesContainer.module.css";
 
+import loading from "../assets/loading.gif";
+
 export default function CardRecipes() {
 	const dispatch = useDispatch();
 	const recetasGlobal = useSelector((state) => state.filteredRecipes);
@@ -39,21 +41,25 @@ export default function CardRecipes() {
 	const showCurrentItems = () => {
 		return (
 			<div className={style.recipesContainer}>
-				{currentItems.map((r, i) => {
-					return (
-						<div key={i}>
-							<CardRecipe
-								key={r.id}
-								image={r.image}
-								name={r.name}
-								diets={r.diets}
-								healthScore={r.healthScore}
-								id={r.id}
-								steps={r.steps}
-							/>
-						</div>
-					);
-				})}
+				{currentItems.length == 0 ? (
+					<img className={style.loading} src={loading} alt='Loading screen' />
+				) : (
+					currentItems.map((r, i) => {
+						return (
+							<div key={i}>
+								<CardRecipe
+									key={r.id}
+									image={r.image}
+									name={r.name}
+									diets={r.diets}
+									healthScore={r.healthScore}
+									id={r.id}
+									steps={r.steps}
+								/>
+							</div>
+						);
+					})
+				)}
 			</div>
 		);
 	};

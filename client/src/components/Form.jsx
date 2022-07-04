@@ -17,6 +17,12 @@ export default function Form() {
 	function handleOnChange(e) {
 		e.preventDefault();
 		setState({ ...state, [e.target.name]: e.target.value });
+		if (e.target.name === "steps") {
+			setState({ ...state, steps: [e.target.value] });
+		}
+		if (e.target.name === "diets") {
+			setState({ ...state, diets: [e.target.value] });
+		}
 	}
 
 	function handleOnSubmit(e) {
@@ -71,8 +77,8 @@ export default function Form() {
 					onChange={handleOnChange}
 				/>
 				{/*--------------------------------------------------------------- */}
-				<label htmlFor='Diets'>Diets</label>
-				<input type='text' name='Diets' id='Diets' onChange={handleOnChange} />
+				<label htmlFor='diets'>Diets</label>
+				<input type='text' name='diets' id='diets' onChange={handleOnChange} />
 				<div className={style.buttonContainer}>
 					<button className={style.button}>Create</button>
 					<button className={style.button}>Clear</button>

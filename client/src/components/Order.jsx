@@ -33,7 +33,7 @@ export default function Order() {
 			<select onChange={onSelectChange}>
 				<option>Filter by diet type...</option>
 				{diets?.map((d) => (
-					<option>{d.name}</option>
+					<option className={style.optionDiet}>{d.name}</option>
 				))}
 			</select>
 		</div>
