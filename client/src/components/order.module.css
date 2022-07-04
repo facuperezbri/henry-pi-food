@@ -8,4 +8,6 @@
 	margin: 0 0.5rem;
 
 	cursor: pointer;
+
+	text-transform: capitalize;
 }

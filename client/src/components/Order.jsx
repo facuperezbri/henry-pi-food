@@ -21,17 +21,24 @@ export default function Order() {
 	return (
 		<div className={style.container}>
 			<select name='alphOrder' onChange={onSelectChange}>
-				<option value='azAll'>Order by name...</option>
+				<option value='azAll' selected={true} disabled='disabled'>
+					Order by name...
+				</option>
 				<option value='az'>A-Z</option>
 				<option value='za'>Z-A</option>
 			</select>
 			<select name='healthOrder' onChange={onSelectChange}>
-				<option value='09all'>Order by health score...</option>
+				<option value='09all' selected={true} disabled='disabled'>
+					Order by health score...
+				</option>
 				<option value='09'>Ascending Health Score</option>
 				<option value='90'>Descending Health Score</option>
 			</select>
 			<select onChange={onSelectChange}>
-				<option>Filter by diet type...</option>
+				<option selected={true} disabled='disabled'>
+					Filter by diet type...
+				</option>
+				<option value='allDiets'>All</option>
 				{diets?.map((d) => (
 					<option className={style.optionDiet}>{d.name}</option>
 				))}

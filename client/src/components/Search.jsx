@@ -32,6 +32,7 @@ export default function Search() {
 					className={style.input}
 					onChange={handleOnChange}
 					type='text'
+					id='searchInput'
 					placeholder=' Search your recipe'
 				/>
 				<button className={style.button} onClick={onSubmit}>

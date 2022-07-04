@@ -39,6 +39,12 @@ export default function Form() {
 		});
 	}
 
+	function validate(input) {
+		if (!input.name) return "Your recipe must have a name";
+		if (input.healthScore < 1 || input.healthScore > 100)
+			return "Your health score must be between 1 and 100";
+	}
+
 	return (
 		<div className={style.container}>
 			<h2>Create your own recipe!</h2>
@@ -56,7 +62,9 @@ export default function Form() {
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='healthScore'>Health Score</label>
 				<input
-					type='text'
+					type='number'
+					min='1'
+					max='100'
 					name='healthScore'
 					id='healthScore'
 					onChange={handleOnChange}
@@ -71,7 +79,8 @@ export default function Form() {
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='readyInMinutes'>Ready in minutes</label>
 				<input
-					type='text'
+					type='number'
+					min={1}
 					name='readyInMinutes'
 					id='readyInMinutes'
 					onChange={handleOnChange}
