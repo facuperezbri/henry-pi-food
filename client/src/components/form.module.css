@@ -31,6 +31,10 @@
 	padding: 0.5rem;
 }
 
+.form select {
+	text-transform: capitalize;
+}
+
 .buttonContainer {
 	display: flex;
 	justify-content: center;

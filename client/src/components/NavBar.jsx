@@ -10,7 +10,9 @@ export default function NavBar() {
 	return (
 		<nav>
 			<div>
-				<img className={style.henryLogo} src={henryLogo} alt='Henry logo' />
+				<a href='https://www.soyhenry.com' target='_blank' rel='noreferrer'>
+					<img className={style.henryLogo} src={henryLogo} alt='Henry logo' />
+				</a>
 			</div>
 			<ul className={style.ul}>
 				<li>
