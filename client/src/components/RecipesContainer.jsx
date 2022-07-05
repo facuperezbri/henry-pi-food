@@ -41,7 +41,7 @@ export default function CardRecipes() {
 	const showCurrentItems = () => {
 		return (
 			<div className={style.recipesContainer}>
-				{currentItems.length == 0 ? (
+				{currentItems.length === 0 ? (
 					<img className={style.loading} src={loading} alt='Loading screen' />
 				) : (
 					currentItems.map((r, i) => {
@@ -54,7 +54,6 @@ export default function CardRecipes() {
 									diets={r.diets}
 									healthScore={r.healthScore}
 									id={r.id}
-									steps={r.steps}
 								/>
 							</div>
 						);

@@ -50,10 +50,17 @@ export default function Form() {
 			<h2>Create your own recipe!</h2>
 			<form className={style.form} onSubmit={handleOnSubmit}>
 				<label htmlFor='name'>Name</label>
-				<input type='text' name='name' id='name' onChange={handleOnChange} />
+				<input
+					key='name'
+					type='text'
+					name='name'
+					id='name'
+					onChange={handleOnChange}
+				/>
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='summary'>Summary</label>
 				<input
+					key='summary'
 					type='text'
 					name='summary'
 					id='summary'
@@ -62,6 +69,7 @@ export default function Form() {
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='healthScore'>Health Score</label>
 				<input
+					key='healthScore'
 					type='number'
 					min='1'
 					max='100'
@@ -71,14 +79,27 @@ export default function Form() {
 				/>
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='steps'>Steps</label>
-				<input type='text' name='steps' id='steps' onChange={handleOnChange} />
+				<input
+					key='steps'
+					type='text'
+					name='steps'
+					id='steps'
+					onChange={handleOnChange}
+				/>
 
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='image'>Image</label>
-				<input type='text' name='image' id='image' onChange={handleOnChange} />
+				<input
+					ket='image'
+					type='text'
+					name='image'
+					id='image'
+					onChange={handleOnChange}
+				/>
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='readyInMinutes'>Ready in minutes</label>
 				<input
+					key='readyInMinutes'
 					type='number'
 					min={1}
 					name='readyInMinutes'
@@ -87,7 +108,13 @@ export default function Form() {
 				/>
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='diets'>Diets</label>
-				<input type='text' name='diets' id='diets' onChange={handleOnChange} />
+				<input
+					key='diets'
+					type='text'
+					name='diets'
+					id='diets'
+					onChange={handleOnChange}
+				/>
 				<div className={style.buttonContainer}>
 					<button className={style.button}>Create</button>
 					<button className={style.button}>Clear</button>

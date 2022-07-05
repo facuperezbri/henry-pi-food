@@ -6,8 +6,19 @@
 	overflow: hidden;
 	color: #fff;
 	margin: 1rem;
+
+	background: #1b1d21;
+
+	position: relative;
+
+	z-index: 1;
+
+	transition: 0.4s;
 }
 
+.cardContainer:hover {
+	transform: scale(1.02);
+}
 .imageRecipe {
 	width: 100%;
 }

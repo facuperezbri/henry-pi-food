@@ -45,6 +45,7 @@ const getDBRecipe = async () => {
 			image: e.dataValues.image,
 			readyInMinutes: e.dataValues.readyInMinutes,
 			diets: e.dataValues.diets.map((d) => d.name),
+			summary: e.dataValues.summary,
 		};
 	});
 	return dbDataFinal;
