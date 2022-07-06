@@ -11,6 +11,7 @@ import loading from "../assets/loading.gif";
 export default function CardRecipes() {
 	const dispatch = useDispatch();
 	const recetasGlobal = useSelector((state) => state.filteredRecipes);
+	const allRecipes = useSelector((state) => state.recipes);
 
 	// Para restablecer paginado en 1 cuando hago Search
 
@@ -41,8 +42,10 @@ export default function CardRecipes() {
 	const showCurrentItems = () => {
 		return (
 			<div className={style.recipesContainer}>
-				{currentItems.length === 0 ? (
+				{allRecipes.length === 0 ? (
 					<img className={style.loading} src={loading} alt='Loading screen' />
+				) : currentItems.length === 0 ? (
+					<h2>We couldn't find the recipe that you are looking for </h2>
 				) : (
 					currentItems.map((r, i) => {
 						return (

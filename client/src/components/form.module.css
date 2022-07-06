@@ -78,8 +78,9 @@
 	margin: 1rem auto 0 auto;
 }
 
-.visibility {
+.errors {
 	visibility: visible;
+	color: red;
 }
 
 .hidden {
@@ -88,8 +89,4 @@
 
 .dietsTypeList {
 	display: flex;
-}
-
-.dietsTypeList li {
-	text-transform: capitalize;
 }

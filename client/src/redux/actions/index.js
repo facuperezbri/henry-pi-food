@@ -25,7 +25,10 @@ export function getDiets() {
 
 export function getRecipeDetail(id) {
 	return async function (dispatch) {
-		const recipeDet = await axios.get(`http://localhost:3001/recipes/${id}`);
+		const recipeDet = await axios
+			.get(`http://localhost:3001/recipes/${id}`)
+			.catch((e) => alert(e));
+
 		return dispatch({
 			type: GET_RECIPE_DETAIL,
 			payload: recipeDet.data,
@@ -34,14 +37,16 @@ export function getRecipeDetail(id) {
 }
 
 export function searchRecipe(name) {
-	return async function (dispatch) {
-		const searchRecipe = await axios.get(
-			`http://localhost:3001/recipes?name=${name}`
-		);
-		return dispatch({
-			type: SEARCH_RECIPE,
-			payload: searchRecipe.data,
-		});
+	return function (dispatch) {
+		return axios
+			.get(`http://localhost:3001/recipes?name=${name}`)
+			.then((r) =>
+				dispatch({
+					type: SEARCH_RECIPE,
+					payload: r.data,
+				})
+			)
+			.catch((e) => console.log(e));
 	};
 }
 

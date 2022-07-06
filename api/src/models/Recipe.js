@@ -18,18 +18,23 @@ module.exports = (sequelize) => {
 			},
 			summary: {
 				type: DataTypes.TEXT,
+				allowNull: false,
 			},
 			healthScore: {
 				type: DataTypes.INTEGER,
+				allowNull: false,
 			},
 			readyInMinutes: {
 				type: DataTypes.INTEGER,
+				allowNull: false,
 			},
 			steps: {
 				type: DataTypes.ARRAY(DataTypes.STRING),
+				allowNull: false,
 			},
 			image: {
 				type: DataTypes.STRING,
+				allowNull: false,
 			},
 		},
 		{ timestamps: false }

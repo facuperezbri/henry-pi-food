@@ -4,6 +4,10 @@
 	justify-content: center;
 }
 
+.recipesContainer h2 {
+	color: #fff;
+}
+
 .loading {
 	height: 400px;
 }

@@ -13,6 +13,7 @@ const initialState = {
 	filteredRecipes: [],
 	diets: [],
 	recipeDetail: [],
+	searchRecipeState: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -68,6 +69,17 @@ export default function reducer(state = initialState, action) {
 			let stateRecipes = [...state.recipes];
 			if (action.payload === "allDiets") {
 				return { ...state, filteredRecipes: stateRecipes };
+			}
+			if (
+				state.searchRecipeState.length !== 0 &&
+				state.recipes.length !== state.searchRecipeState.length
+			) {
+				return {
+					...state,
+					filteredRecipes: state.searchRecipeState.filter((type) =>
+						type.diets.includes(action.payload)
+					),
+				};
 			}
 			return {
 				...state,

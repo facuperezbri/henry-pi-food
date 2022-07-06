@@ -10,7 +10,50 @@
 	width: 60%;
 	color: #fff;
 }
+.container h2 {
+	margin-top: 1rem;
+}
+
+.container h3 {
+	margin: 1rem;
+}
+
+.container ol {
+	margin: 0 10rem;
+}
 
 .image {
 	width: 300px;
+	margin: 2rem 0;
+	border-radius: 10px;
+}
+
+.summary {
+	margin: 0 10rem;
+}
+
+.scoreImg {
+	height: 30px;
+	margin: 1rem 0;
+}
+
+.button {
+	height: 2.8rem;
+	width: 6rem;
+	background: #f28d2f;
+	color: #fff;
+
+	font-weight: 800;
+	border: none;
+	border-radius: 10px;
+
+	cursor: pointer;
+
+	transition: 0.4s;
+
+	margin: 1rem auto;
+}
+
+.button:hover {
+	transform: scale(1.1);
 }

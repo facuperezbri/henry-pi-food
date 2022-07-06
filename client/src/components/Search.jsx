@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { searchRecipe, getRecipes } from "../redux/actions";
 import Order from "./Order";
 import style from "./search.module.css";
 import { Link } from "react-router-dom";
 
 export default function Search() {
+	let searchState = useSelector((state) => state.searchRecipeState);
 	const dispatch = useDispatch();
 	const [valueName, setValueName] = useState("");
 
@@ -17,7 +18,12 @@ export default function Search() {
 
 	function onSubmit(e) {
 		e.preventDefault();
-		dispatch(searchRecipe(valueName));
+
+		dispatch(searchRecipe(valueName)).then((r) => {
+			if (r === undefined) alert("Your recipe wasn't found");
+		});
+
+		document.getElementById("searchInput").value = "";
 	}
 
 	function clearSearch(e) {

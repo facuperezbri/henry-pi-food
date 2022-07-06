@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createRecipe } from "../redux/actions";
 import style from "./form.module.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { getDiets } from "../redux/actions";
 
 export default function Form() {
 	const [errors, setErrors] = useState({
@@ -59,15 +61,20 @@ export default function Form() {
 		return errorsHandler;
 	}
 
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getDiets());
+	}, []);
 	let diets = useSelector((state) => state.diets);
 
 	const [state, setState] = useState({
-		name: "",
-		summary: "",
-		healthScore: 1,
+		name: null,
+		summary: null,
+		healthScore: null,
 		steps: [],
-		image: "",
-		readyInMinutes: 1,
+		image: null,
+		readyInMinutes: null,
 		diets: [],
 	});
 
@@ -96,12 +103,12 @@ export default function Form() {
 		e.preventDefault();
 		createRecipe(state);
 		setState({
-			name: "",
-			summary: "",
-			healthScore: 1,
+			name: null,
+			summary: null,
+			healthScore: null,
 			steps: [],
-			image: "",
-			readyInMinutes: 1,
+			image: null,
+			readyInMinutes: null,
 			diets: [],
 		});
 		setErrors({
@@ -124,6 +131,27 @@ export default function Form() {
 		});
 	}
 
+	function clear() {
+		setState({
+			name: "",
+			summary: "",
+			healthScore: 1,
+			steps: [],
+			image: "",
+			readyInMinutes: 1,
+			diets: [],
+		});
+		setErrors({
+			name: true,
+			summary: true,
+			healthScore: true,
+			steps: true,
+			image: true,
+			readyInMinutes: true,
+			diets: true,
+		});
+	}
+
 	return (
 		<div className={style.container}>
 			<h2>Create your own recipe!</h2>
@@ -138,7 +166,7 @@ export default function Form() {
 					onChange={handleOnChange}
 				/>
 				{errors.name ? (
-					<h4 className={style.visible}>{errors.name}</h4>
+					<h4 className={style.errors}>{errors.name}</h4>
 				) : (
 					<h4 className={style.hidden}>Ok</h4>
 				)}
@@ -153,7 +181,7 @@ export default function Form() {
 					onChange={handleOnChange}
 				/>
 				{errors.summary ? (
-					<h4 className={style.visible}>{errors.summary}</h4>
+					<h4 className={style.errors}>{errors.summary}</h4>
 				) : (
 					<h4 className={style.hidden}>Ok</h4>
 				)}
@@ -170,7 +198,7 @@ export default function Form() {
 					onChange={handleOnChange}
 				/>
 				{errors.healthScore ? (
-					<h4 className={style.visible}>{errors.healthScore}</h4>
+					<h4 className={style.errors}>{errors.healthScore}</h4>
 				) : (
 					<h4 className={style.hidden}>Ok</h4>
 				)}
@@ -186,7 +214,7 @@ export default function Form() {
 				/>
 
 				{errors.steps ? (
-					<h4 className={style.visible}>{errors.steps}</h4>
+					<h4 className={style.errors}>{errors.steps}</h4>
 				) : (
 					<h4 className={style.hidden}>Ok</h4>
 				)}
@@ -201,7 +229,7 @@ export default function Form() {
 					onChange={handleOnChange}
 				/>
 				{errors.image ? (
-					<h4 className={style.visible}>{errors.image}</h4>
+					<h4 className={style.errors}>{errors.image}</h4>
 				) : (
 					<h4 className={style.hidden}>Ok</h4>
 				)}
@@ -217,7 +245,7 @@ export default function Form() {
 					onChange={handleOnChange}
 				/>
 				{errors.readyInMinutes ? (
-					<h4 className={style.visible}>{errors.readyInMinutes}</h4>
+					<h4 className={style.errors}>{errors.readyInMinutes}</h4>
 				) : (
 					<h4 className={style.hidden}>Ok</h4>
 				)}
@@ -228,7 +256,9 @@ export default function Form() {
 						Select your diet...
 					</option>
 					{diets.map((d) => (
-						<option value={d.name}>{d.name}</option>
+						<option key={d.id} value={d.name}>
+							{d.name}
+						</option>
 					))}
 				</select>
 				<ul className={style.dietsTypesList}>
@@ -244,9 +274,7 @@ export default function Form() {
 						</li>
 					))}
 				</ul>
-				{errors.diets ? (
-					<h4 className={style.visible}>{errors.diets}</h4>
-				) : null}
+				{errors.diets ? <h4 className={style.errors}>{errors.diets}</h4> : null}
 				<div className={style.buttonContainer}>
 					{state.diets.length === 0 ||
 					errors.name ||
@@ -271,8 +299,6 @@ export default function Form() {
 							Create
 						</button>
 					)}
-
-					<button className={style.button}>Clear</button>
 				</div>
 				<div className={style.buttonContainer}>
 					<Link to='/home'>
