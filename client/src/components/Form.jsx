@@ -18,25 +18,43 @@ export default function Form() {
 	function validate(input) {
 		let errorsHandler = {};
 		if (!input.name) {
-			errorsHandler.name = "a";
+			errorsHandler.name = "Your recipe must have a name";
+		}
+		if (!/^[a-zA-Z\s]*$/.test(input.name)) {
+			errorsHandler.name = "Name recipe must only have letters";
 		}
 		if (!input.summary) {
-			errorsHandler.summary = "b";
+			errorsHandler.summary = "You must explain your recipe";
 		}
 		if (!input.healthScore) {
-			errorsHandler.healthScore = "c";
+			errorsHandler.healthScore = "Please enter a value between 1 and 100";
+		}
+		if (
+			!/^[0-9_-]{1,3}$/.test(input.healthScore) ||
+			input.healthScore < 1 ||
+			input.healthScore > 100
+		) {
+			errorsHandler.healthScore = "You must enter a number between 1 and 100";
 		}
 		if (input.steps.length === 0) {
-			errorsHandler.steps = "d";
+			errorsHandler.steps = "Please enter the steps of your recipe";
 		}
 		if (!input.image) {
-			errorsHandler.image = "e";
+			errorsHandler.image = "You must complete this field";
+		}
+		if (
+			!/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/.test(
+				input.image
+			)
+		) {
+			errorsHandler.image = "This must an url";
 		}
 		if (!input.readyInMinutes) {
-			errorsHandler.readyInMinutes = "f";
+			errorsHandler.readyInMinutes =
+				"You must enter a in how many minutes is ready";
 		}
 		if (input.diets.length === 0) {
-			errorsHandler.diets = "g";
+			errorsHandler.diets = "You must at least choose one type of diet";
 		}
 		return errorsHandler;
 	}
@@ -110,7 +128,11 @@ export default function Form() {
 					id='name'
 					onChange={handleOnChange}
 				/>
-				{errors.name ? <h3>Tenés que ingresar el nombre</h3> : null}
+				{errors.name ? (
+					<h4 className={style.visible}>{errors.name}</h4>
+				) : (
+					<h4 className={style.hidden}>Ok</h4>
+				)}
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='summary'>Summary</label>
 				<input
@@ -121,7 +143,11 @@ export default function Form() {
 					id='summary'
 					onChange={handleOnChange}
 				/>
-				{errors.summary ? <h3>Tenés que ingresar el summary</h3> : null}
+				{errors.summary ? (
+					<h4 className={style.visible}>{errors.summary}</h4>
+				) : (
+					<h4 className={style.hidden}>Ok</h4>
+				)}
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='healthScore'>Health Score</label>
 				<input
@@ -134,7 +160,11 @@ export default function Form() {
 					id='healthScore'
 					onChange={handleOnChange}
 				/>
-				{errors.healthScore ? <h3>Tenés que ingresar el score</h3> : null}
+				{errors.healthScore ? (
+					<h4 className={style.visible}>{errors.healthScore}</h4>
+				) : (
+					<h4 className={style.hidden}>Ok</h4>
+				)}
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='steps'>Steps</label>
 				<input
@@ -145,7 +175,11 @@ export default function Form() {
 					id='steps'
 					onChange={handleOnChange}
 				/>
-				{errors.steps ? <h3>Tenés que ingresar el steps</h3> : null}
+				{errors.steps ? (
+					<h4 className={style.visible}>{errors.steps}</h4>
+				) : (
+					<h4 className={style.hidden}>Ok</h4>
+				)}
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='image'>Image</label>
 				<input
@@ -156,7 +190,11 @@ export default function Form() {
 					id='image'
 					onChange={handleOnChange}
 				/>
-				{errors.image ? <h3>Tenés que ingresar el image</h3> : null}
+				{errors.image ? (
+					<h4 className={style.visible}>{errors.image}</h4>
+				) : (
+					<h4 className={style.hidden}>Ok</h4>
+				)}
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='readyInMinutes'>Ready in minutes</label>
 				<input
@@ -168,7 +206,11 @@ export default function Form() {
 					id='readyInMinutes'
 					onChange={handleOnChange}
 				/>
-				{errors.readyInMinutes ? <h3>Tenés que ingresar el ready</h3> : null}
+				{errors.readyInMinutes ? (
+					<h4 className={style.visible}>{errors.readyInMinutes}</h4>
+				) : (
+					<h4 className={style.hidden}>Ok</h4>
+				)}
 				{/*--------------------------------------------------------------- */}
 				<label htmlFor='diets'>Diets</label>
 				<select name='diets' id='diets' onChange={handleOnChange}>
@@ -184,7 +226,11 @@ export default function Form() {
 						<li>{d}</li>
 					))}
 				</ul>
-				{errors.diets ? <h3>Tenés que ingresar el diet</h3> : null}
+				{errors.diets ? (
+					<h4 className={style.visible}>{errors.diets}</h4>
+				) : (
+					<h4 className={style.hidden}>Ok</h4>
+				)}
 				<div className={style.buttonContainer}>
 					<button type='submit' className={style.button}>
 						Create
