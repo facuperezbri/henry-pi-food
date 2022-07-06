@@ -37,7 +37,7 @@ export default function Form() {
 			errorsHandler.healthScore = "You must enter a number between 1 and 100";
 		}
 		if (input.steps.length === 0) {
-			errorsHandler.steps = "Please enter the steps of your recipe";
+			errorsHandler.steps = "Please enter the steps of your";
 		}
 		if (!input.image) {
 			errorsHandler.image = "You must complete this field";
@@ -113,6 +113,15 @@ export default function Form() {
 			readyInMinutes: true,
 			diets: true,
 		});
+		alert("Your recipe was succesfully created");
+	}
+
+	function handleDelete(e, d) {
+		e.preventDefault();
+		setState({
+			...state,
+			diets: state.diets.filter((diet) => diet !== d),
+		});
 	}
 
 	return (
@@ -175,6 +184,7 @@ export default function Form() {
 					id='steps'
 					onChange={handleOnChange}
 				/>
+
 				{errors.steps ? (
 					<h4 className={style.visible}>{errors.steps}</h4>
 				) : (
@@ -221,20 +231,47 @@ export default function Form() {
 						<option value={d.name}>{d.name}</option>
 					))}
 				</select>
-				<ul>
+				<ul className={style.dietsTypesList}>
 					{state.diets.map((d) => (
-						<li>{d}</li>
+						<li>
+							<span>{d}</span>
+							<button
+								className={style.deleteButton}
+								onClick={(e) => handleDelete(e, d)}
+							>
+								x
+							</button>
+						</li>
 					))}
 				</ul>
 				{errors.diets ? (
 					<h4 className={style.visible}>{errors.diets}</h4>
-				) : (
-					<h4 className={style.hidden}>Ok</h4>
-				)}
+				) : null}
 				<div className={style.buttonContainer}>
-					<button type='submit' className={style.button}>
-						Create
-					</button>
+					{state.diets.length === 0 ||
+					errors.name ||
+					errors.image ||
+					errors.summary ||
+					errors.healthScore ||
+					errors.steps ||
+					!state.name ||
+					!state.image ||
+					!state.summary ||
+					!state.healthScore ||
+					!state.steps ? (
+						<button
+							type='submit'
+							className={style.buttonDisabled}
+							disabled={true}
+						>
+							Create
+						</button>
+					) : (
+						<button type='submit' className={style.button}>
+							Create
+						</button>
+					)}
+
 					<button className={style.button}>Clear</button>
 				</div>
 				<div className={style.buttonContainer}>

@@ -61,10 +61,35 @@
 	transform: scale(1.1);
 }
 
+.buttonDisabled {
+	height: 2.8rem;
+	width: 6rem;
+	background: gray;
+	color: #fff;
+
+	font-weight: 800;
+	border: none;
+	border-radius: 10px;
+
+	cursor: pointer;
+
+	transition: 0.4s;
+
+	margin: 1rem auto 0 auto;
+}
+
 .visibility {
 	visibility: visible;
 }
 
 .hidden {
-	opacity: 0;
+	visibility: hidden;
+}
+
+.dietsTypeList {
+	display: flex;
+}
+
+.dietsTypeList li {
+	text-transform: capitalize;
 }
