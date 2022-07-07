@@ -1,5 +1,10 @@
 import React from "react";
-import { sortByName, sortByHealthScore, filterBy } from "../redux/actions";
+import {
+	sortByName,
+	sortByHealthScore,
+	filterBy,
+	filter20,
+} from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./order.module.css";
 
@@ -14,7 +19,9 @@ export default function Order() {
 			dispatch(sortByName(e.target.value));
 		else if (e.target.value === "09" || e.target.value === "90")
 			dispatch(sortByHealthScore(e.target.value));
-		else {
+		else if (e.target.value === "2040") {
+			dispatch(filter20(e.target.value));
+		} else {
 			dispatch(filterBy(e.target.value));
 		}
 	}
@@ -42,6 +49,11 @@ export default function Order() {
 				{diets?.map((d) => (
 					<option className={style.optionDiet}>{d.name}</option>
 				))}
+			</select>
+			<select onChange={onSelectChange}>
+				{" "}
+				<option selected={true}>Filter 2040</option>
+				<option value='2040'>2040</option>
 			</select>
 		</div>
 	);

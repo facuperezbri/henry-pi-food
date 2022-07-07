@@ -8,7 +8,7 @@ let apiURL2 = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KE
 let apiURL = `https://apimocha.com/facurecipes/recipes`;
 
 const getApiRecipe = async () => {
-	const apiPromisedData = await axios.get(apiURL);
+	const apiPromisedData = await axios.get(apiURL2);
 	const apiData = await apiPromisedData.data.results.map((r) => {
 		return {
 			id: r.id,

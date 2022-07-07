@@ -238,7 +238,7 @@ export default function Form() {
 				<input
 					key='readyInMinutes'
 					type='number'
-					min={1}
+					min='1'
 					name='readyInMinutes'
 					value={state.readyInMinutes}
 					id='readyInMinutes'

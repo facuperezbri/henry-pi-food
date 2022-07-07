@@ -6,6 +6,7 @@ import {
 	SEARCH_RECIPE,
 	SORT_BY_HS,
 	SORT_BY_NAME,
+	FILTER_20_40,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -87,7 +88,16 @@ export default function reducer(state = initialState, action) {
 					type.diets.includes(action.payload)
 				),
 			};
-
+		case FILTER_20_40:
+			if (action.payload === "2040") {
+				return {
+					...state,
+					filteredRecipes: state.recipes.filter(
+						(f) => f.healthScore > 20 && f.healthScore < 40
+					),
+				};
+			}
+			return { ...state };
 		default:
 			return state;
 	}

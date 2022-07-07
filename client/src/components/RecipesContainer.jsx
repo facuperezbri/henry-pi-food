@@ -13,6 +13,8 @@ export default function CardRecipes() {
 	const recetasGlobal = useSelector((state) => state.filteredRecipes);
 	const allRecipes = useSelector((state) => state.recipes);
 
+	console.log(recetasGlobal);
+
 	// Para restablecer paginado en 1 cuando hago Search
 
 	useEffect(() => {
