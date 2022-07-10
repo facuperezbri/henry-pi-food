@@ -9,8 +9,8 @@ import Form from "./components/Form";
 function App() {
 	return (
 		<div className='App'>
-			<NavBar />
 			<Route exact path='/' component={WelcomeScreen} />
+			<Route path='/home' component={NavBar} />
 			<Route exact path='/home' component={Search} />
 			<Route exact path='/home' component={Home} />
 			<Route
